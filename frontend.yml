@@ -18,7 +18,7 @@
     - name: create the Nginx dir
       ansible.builtin.file:
        path: /usr/share/nginx/html
-       state: present
+       state: directory
 
 
     - name: download and extract the files
