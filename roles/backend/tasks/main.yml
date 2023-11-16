@@ -1,0 +1,45 @@
+    - name: disable nodejs 18
+      ansible.builtin.shell: dnf module disable nodejs -y
+    - name: enable nodejs 18
+      ansible.builtin.shell: dnf module enable nodejs:18 -y
+    - name: install nodejs
+      ansible.builtin.dnf:
+        name: nodejs
+        state: present
+    - name: copy backend.service file
+      ansible.builtin.copy:
+        src: backend.service
+        dest: /etc/systemd/system/backend.service
+    - name: adding the user
+      ansible.builtin.user:
+        name: expense
+    - name: clean the directory
+      ansible.builtin.file:
+        name: /app
+        state: absent
+    - name: create the directory
+      ansible.builtin.file:
+        name: /app
+        state: directory
+    - name: download and extract the file
+      ansible.builtin.unarchive:
+        src: https://expense-artifacts.s3.amazonaws.com/backend.zip
+        dest: /app
+        remote_src: yes
+    - name: install the npm packages
+      ansible.builtin.shell: npm install
+      args:
+        chdir: /app
+    - name: installing mysql
+      ansible.builtin.dnf:
+        name: mysql
+        state: present
+    - name: load schema
+      ansible.builtin.shell: mysql -h mysql-dev.osdevops99.online -uroot -p{{MYSQL_ROOT_PASSWORD}} < /app/schema/backend.sql
+    - name: backend start
+      ansible.builtin.systemd:
+        name: backend
+        state: restarted
+        enabled: yes
+        daemon-reload: yes
+
