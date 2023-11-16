@@ -24,7 +24,7 @@
    - name: create the directory
      ansible.builtin.file:
        name: /app
-       state: present
+       state: directory
    - name: download and extract the file
      ansible.builtin.unarchive:
       src: https://expense-artifacts.s3.amazonaws.com/backend.zip
