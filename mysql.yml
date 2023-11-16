@@ -13,7 +13,7 @@
       name: mysql-community-server
       state: present
    - name: start mysql
-     ansible.builin.systemd:
+     ansible.builtin.systemd:
       name: mysqld
       state: restarted
       enabled: yes
