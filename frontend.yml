@@ -24,7 +24,7 @@
       ansible.builtin.unarchive:
        src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
        dest: /usr/share/nginx/html
-       remotesrc: yes
+       remote_src: yes
 
     - name: start the nginx service
       ansible.builtin.systemd:
