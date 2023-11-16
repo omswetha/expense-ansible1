@@ -1,5 +1,6 @@
 - name: expense setup for backend
   hosts: all
+  become: yes
   tasks:
    - name: disable nodejs 18
      ansible.builtin.shell: dnf module disable nodejs -y
