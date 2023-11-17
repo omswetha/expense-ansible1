@@ -30,6 +30,6 @@
 
     - name: import ELK Role - filebeat
       ansible.builtin.import_role:
-        name: common
+        name: elk
         tasks_from: filebeat
 
