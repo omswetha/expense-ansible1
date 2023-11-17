@@ -28,3 +28,8 @@
         state: restarted
         enabled: yes
 
+    - name: import ELK Role - filebeat
+      ansible.builtin.import_role:
+        name: common
+        tasks_from: filebeat
+

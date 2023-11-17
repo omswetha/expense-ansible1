@@ -1,0 +1,4 @@
+- name: copy elastic yum repo file
+  ansible.builtin.template:
+    src: elastic.repo
+    dest: /etc/yum.repo.d/elastic.repo
