@@ -6,7 +6,7 @@
     src: mysql.repo
     dest: /etc/yum.repos.d/mysql.repo
 
-- name: insatlling the mysql
+- name: installing the mysql
   ansible.builtin.dnf:
     name: mysql-community-server
     state: present
