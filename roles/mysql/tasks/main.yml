@@ -4,7 +4,7 @@
   ansible.builtin.copy:
     src: mysql.repo
     dest: /etc/yum.repos.d/mysql.repo
-    remote_src: yes
+
 - name: insatlling the mysql
   ansible.builtin.dnf:
     name: mysql-community-server
