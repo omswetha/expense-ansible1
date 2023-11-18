@@ -21,10 +21,12 @@
   ansible.builtin.file:
     path: /app
     state: directory
+
 - name: downlaod and extract the file
   ansible.builtin.unarchive:
     src: https://expense-artifacts.s3.amazonaws.com/backend.zip
     dest: /app
+
 - name: download the node dependencies
   ansible.builtin.shell: npm install
   args:
