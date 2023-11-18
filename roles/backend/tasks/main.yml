@@ -7,7 +7,7 @@
     name: nodejs
     state: present
 - name: copy backend.service
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: backend.service
     dest: /etc/systemd/system/backend.service
 - name: adding the user
