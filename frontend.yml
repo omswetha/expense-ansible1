@@ -1,6 +1,6 @@
 - name: demo on frontend
   hosts: all
-  become: true
+  become: yes
   tasks:
     - name: installing nginx
       ansible.builtin.dnf:
