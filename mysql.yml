@@ -5,7 +5,7 @@
     - name: disable mysql default version
       ansible.builtin.shell: dnf module disable mysql -y
     - name: copying the mysql.repo
-      ansible.buitin.copy:
+      ansible.builtin.copy:
         src: mysql.repo
         dest: /etc/yum.repos.d/mysql.repo
     - name: insatlling the mysql
@@ -14,7 +14,7 @@
        state: present
 
     - name: starting the mysql service
-      ansible.buitin.systemd:
+      ansible.builtin.systemd:
        name: mysqld
        state: restarted
        enabled: yes
