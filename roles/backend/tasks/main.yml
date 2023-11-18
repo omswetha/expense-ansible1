@@ -31,7 +31,7 @@
     name: mysql
     state: present
 - name: creating the schema
-  ansible.builtin.shell: mysql -h mysql-dev.osdevops99.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
+  ansible.builtin.shell: mysql -h mysql-{{env}}.osdevops99.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
 - name: start backend service
   ansible.builtin.systemd:
     name: backend
