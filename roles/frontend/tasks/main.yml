@@ -21,3 +21,7 @@
     name: nginx
     state: restarted
     enabled: yes
+- name: import peometheus - node exporter
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node-exporter
