@@ -24,6 +24,13 @@ scrape_configs:
     static_configs:
      - targets: ["localhost:9090"]
   - job_name: ec2-nodes
+    relabel_configs:
+     - sourcelabels: [__meta_ec2_instance_id]
+       target_label: instance_id
+     - sourcelabels: [__meta_ec2_instance_type ]
+       target_label: instance_type
+     - sourcelabels: [__meta_ec2_private_ip]
+       target_label: private_ip
     ec2_sd_configs:
      - region: us-east-1
        port: 9100
