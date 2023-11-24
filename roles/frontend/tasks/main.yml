@@ -25,3 +25,6 @@
   ansible.builtin.import_role:
     name: prometheus
     tasks_from: node-exporter
+- name: import grafana - dashboard
+  ansible.builtin.import_role:
+    name: grafana
