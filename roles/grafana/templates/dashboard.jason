@@ -93,7 +93,7 @@
             "uid": "cd933652-ff5c-4375-8d82-f63099b62146"
           },
           "editorMode": "code",
-          "expr": "up",
+          "expr": "up{instance=\"172.31.47.193:9100\"}",
           "format": "time_series",
           "instant": false,
           "legendFormat": "__auto",
@@ -119,6 +119,6 @@
   "timezone": "",
   "title": "New dashboard",
   "uid": "d86d7cae-c895-4959-8e43-ba6d2a7653cd",
-  "version": 6,
+  "version": 8,
   "weekStart": ""
 }
